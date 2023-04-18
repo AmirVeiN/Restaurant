@@ -91,7 +91,9 @@ export default function FoodSlice() {
               <div className="flex flex-col items-start h-fit space-y-2">
                 <h4 className="text-2xl text-bold text-black">{food.title}</h4>
                 <small className="text-black">
-                  {`قیمت واحد: ${Intl.NumberFormat("fa").format(food.price)} تومان`}{" "}
+                  {`قیمت واحد: ${Intl.NumberFormat("fa").format(
+                    food.price
+                  )} تومان`}{" "}
                 </small>
               </div>
             </div>
