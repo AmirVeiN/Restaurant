@@ -17,6 +17,7 @@ export type foodType = {
     desc:string;
     rate:number;
     cal:number;
+    count:number;
     time:number;
 };
 
@@ -32,6 +33,7 @@ const initialState: foodType[ ]= [
         rate:42,
         cal:150,
         time:60,
+        count:1,
     },
     {
         id: 2,
@@ -44,6 +46,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },
     {
         id: 3,
@@ -56,6 +59,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },{
         id: 4,
         title: "کباب سلطانی",
@@ -67,6 +71,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },{
         id: 5,
         title: "کباب جوجه",
@@ -78,6 +83,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },{
         id: 6,
         title: "پیتزا پپرونی",
@@ -89,6 +95,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },{
         id: 7,
         title: "پیتزا خانواده",
@@ -100,6 +107,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },{
         id: 8,
         title: "پیتزا قارج و مرغ",
@@ -111,6 +119,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },{
         id: 9,
         title: "پیتزا گوساله",
@@ -122,6 +131,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },
     {
         id: 10,
@@ -134,6 +144,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },
     {
         id: 11,
@@ -146,6 +157,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },
     {
         id: 12,
@@ -158,6 +170,7 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },
     {
         id: 13,
@@ -170,13 +183,21 @@ const initialState: foodType[ ]= [
         rate:50,
         cal:150,
         time:60,
+        count:1,
     },
 ];
 
 const foodSlice = createSlice({
     name: "foodSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        countChange:(state,action)=>{
+            return state.map(item => ({
+                ...item,
+                count: item.count+1
+        }))
+        }
+    },
 });
 
 export default foodSlice.reducer;

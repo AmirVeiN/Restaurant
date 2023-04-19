@@ -12,6 +12,7 @@ module.exports = {
       card: "#F9D949",
       text: "#000",
       green:"#1c5f30",
+      gray:"#E9EEF0",
       blue:"#4682b4  ",
     },
     extend: {

@@ -8,13 +8,15 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { TiShoppingCart } from "react-icons/ti";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { useAppSelector } from "../../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { addorder } from "../../../store/order/slice";
 
 export default function FoodSlice() {
   const [count, setCount] = useState(1);
   const router = useRouter();
   const foods = useAppSelector((store) => store.foods);
   const { index } = router.query;
+  const dispatch = useAppDispatch();
 
   if (typeof index === "string") {
     const food = foods.find((food) => food.id === parseInt(index));
@@ -120,7 +122,20 @@ export default function FoodSlice() {
               </div>
             </div>
             <div className=" flex justify-center">
-              <button className="text-primary  rounded-xl w-72 h-12 border flex justify-center items-center bg-red border-red">
+              <button
+                onClick={() => {
+                  dispatch(
+                    addorder({
+                      id: 0,
+                      count,
+                      price: food.price,
+                      img: food.img,
+                      title: food.title,
+                    })
+                  );
+                }}
+                className="text-primary  rounded-xl w-72 h-12 border flex justify-center items-center bg-red border-red"
+              >
                 افزودن به سفارشات
               </button>
             </div>

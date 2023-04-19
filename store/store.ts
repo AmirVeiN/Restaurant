@@ -2,11 +2,13 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
 import foods from "./foods/slice";
 import core from "./core/slice";
+import order from "./order/slice"
 
 export const store = configureStore({
     reducer: {
         foods,
         core,
+        order,
     },
 });
 
