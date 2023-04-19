@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { HiOutlinePlus } from "react-icons/hi";
-import { HiOutlineMinus } from "react-icons/hi";
 import { TiStar } from "react-icons/ti";
 import { AiFillFire } from "react-icons/ai";
 import { BsFillClockFill } from "react-icons/bs";
@@ -23,9 +21,8 @@ export default function FoodSlice() {
 
     if (food !== undefined)
       return (
-        <div className="flex bg-back flex-col items-center h-screen -z-20 w-screen justify-between">
-          <div className="bg-card/40 absolute h-full w-full" />
-          <div className="flex w-full p-6 flex-row justify-between items-center z-10">
+        <div className="flex bg-back flex-col items-center h-screen  w-screen justify-between">
+          <div className="flex w-full p-6 flex-row justify-between items-center">
             <button
               onClick={() => router.push("/")}
               className="text-xl shadow-md p-3 rounded-xl bg-primary text-black/80"
@@ -39,8 +36,8 @@ export default function FoodSlice() {
               <TiShoppingCart />
             </button>
           </div>
-          <div className="z-20 bg-primary w-full h-[46rem] rounded-t-[60px] flex flex-col p-5 justify-between ">
-            <div className="flex mb-7 items-center justify-center rounded-lg ">
+          <div className=" bg-primary w-full h-[46rem] rounded-t-[60px] flex flex-col p-5 justify-between ">
+            <div className="flex  items-center justify-center rounded-lg ">
               <Image
                 className="h-fit w-fit"
                 src={food.img}

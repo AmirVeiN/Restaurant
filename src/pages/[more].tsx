@@ -8,20 +8,15 @@ import { useAppDispatch } from "../../store/hooks";
 import { useAppSelector } from "../../store/hooks";
 
 export default function FoodsList() {
-  const dispatch = useAppDispatch();
   const foods = useAppSelector((store) => store.foods);
-  const sectionList = useAppSelector((store) => store.core);
   const router = useRouter();
   const { more } = router.query;
 
   const data = foods.filter((food) => food.foodEnum === more);
 
-  console.log(data);
-
   return (
-    <div className="h-full relative bg-back bg-repeat -z-20">
-      <div className="bg-red/30 absolute h-full w-full -z-10 top-0" />
-      <div className="flex w-full p-6 flex-row justify-between items-center -z-20">
+    <div className="h-screen bg-back">
+      <div className="flex w-full p-6 flex-row justify-between items-center ">
         <button
           onClick={() => router.push("/")}
           className="text-xl shadow-md p-3 rounded-xl text-text/80 bg-primary"

@@ -36,7 +36,7 @@ module.exports = {
         'up': 'wave 2s linear  infinite',
       },
       backgroundImage: {
-        'back': "url('/background.png')",
+        'back': "url('/background3.png')",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
