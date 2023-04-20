@@ -17,13 +17,6 @@ function FoodSelected(props: {
 }) {
   const [count, countHandler] = useState(props.count);
 
-  useEffect(() => {
-    props.summaryHandler((s) => ({
-      ...s,
-      [props.title]: props.price * count,
-    }));
-  }, []);
-
   return (
     <div className="flex justify-around shadow-md rounded-xl h-24 w-full flex-row">
       <Image src={props.img} alt="Loading..." width={80} height={10} />
@@ -42,7 +35,13 @@ function FoodSelected(props: {
     rtl:space-x-reverse items-center"
         >
           <button
-            onClick={() => countHandler((c) => c + 1)}
+            onClick={() => {
+              countHandler((c) => c + 1);
+              props.summaryHandler((s) => ({
+                ...s,
+                [props.title]: props.price * (count + 1),
+              }));
+            }}
             className="text-text bg-card justify-center 
       flex items-center h-6 w-6 rounded-lg"
           >
@@ -50,7 +49,15 @@ function FoodSelected(props: {
           </button>
           <div>{Intl.NumberFormat("fa").format(count)}</div>
           <button
-            onClick={() => countHandler((c) => c - 1)}
+            onClick={() => {
+              if (count > 0) {
+                countHandler((c) => c - 1);
+                props.summaryHandler((s) => ({
+                  ...s,
+                  [props.title]: props.price * (count - 1),
+                }));
+              }
+            }}
             className="text-text bg-primary justify-center
        flex items-center h-6 w-6 rounded-lg "
           >
@@ -63,17 +70,15 @@ function FoodSelected(props: {
 }
 
 export default function payment() {
-  const [summary, summaryHandler] = useState<{ [key: string]: number }>({});
-
-  const finalyPrice = Object.values(summary).reduce(
-    (total, number) => total + number,
-    0
+  const orderItems = useAppSelector((item) => item.order);
+  const [summary, summaryHandler] = useState<{ [key: string]: number }>(
+    orderItems.reduce((obj, value) => {
+      return { ...obj, [value.title]: value.count * value.price };
+    }, {})
   );
 
-  const orderItems = useAppSelector((item) => item.order);
-
   const router = useRouter();
-  const dispatch = useAppDispatch();
+  console.log(summary);
 
   return (
     <div className="w-screen h-screen flex flex-col">
@@ -105,7 +110,14 @@ export default function payment() {
         <div className="flex flex-row font-bold justify-between p-5">
           <div>قیمت کل :</div>
           <div className="flex flex-row space-x-2 space-x-reverse">
-            <div>{Intl.NumberFormat("fa").format(finalyPrice)}</div>
+            <div>
+              {Intl.NumberFormat("fa").format(
+                Object.values(summary).reduce(
+                  (total, number) => total + number,
+                  0
+                )
+              )}
+            </div>
             <div>تومان </div>
           </div>
         </div>
