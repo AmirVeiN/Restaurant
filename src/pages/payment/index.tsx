@@ -4,15 +4,75 @@ import { useAppSelector, useAppDispatch } from "../../../store/hooks";
 import Image from "next/image";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
-import { changeCount } from "../../../store/order/slice";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+function FoodSelected(props: {
+  summaryHandler: React.Dispatch<
+    React.SetStateAction<{ [key: string]: number }>
+  >;
+  count: number;
+  price: number;
+  img: string;
+  title: string;
+}) {
+  const [count, countHandler] = useState(props.count);
+
+  useEffect(() => {
+    props.summaryHandler((s) => ({
+      ...s,
+      [props.title]: props.price * count,
+    }));
+  }, []);
+
+  return (
+    <div className="flex justify-around shadow-md rounded-xl h-24 w-full flex-row">
+      <Image src={props.img} alt="Loading..." width={80} height={10} />
+      <div className="flex flex-col items-center justify-center space-y-3 w-full">
+        <div>{props.title}</div>
+        <div className="flex flex-row space-x-2 space-x-reverse">
+          <div>{Intl.NumberFormat("fa").format(props.price * count)}</div>
+          <div>
+            <p className="">تومان</p>
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-center w-full h-full">
+        <div
+          className="flex  flex-row p-1 justify-center space-x-5 bg-gray  rounded-lg
+    rtl:space-x-reverse items-center"
+        >
+          <button
+            onClick={() => countHandler((c) => c + 1)}
+            className="text-text bg-card justify-center 
+      flex items-center h-6 w-6 rounded-lg"
+          >
+            <AiOutlinePlus />
+          </button>
+          <div>{Intl.NumberFormat("fa").format(count)}</div>
+          <button
+            onClick={() => countHandler((c) => c - 1)}
+            className="text-text bg-primary justify-center
+       flex items-center h-6 w-6 rounded-lg "
+          >
+            <AiOutlineMinus />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function payment() {
+  const [summary, summaryHandler] = useState<{ [key: string]: number }>({});
+
+  const finalyPrice = Object.values(summary).reduce(
+    (total, number) => total + number,
+    0
+  );
+
   const orderItems = useAppSelector((item) => item.order);
-  const count = [1, 2, 3];
-  console.log(count[0]);
+
   const router = useRouter();
-  const { more } = router.query;
   const dispatch = useAppDispatch();
 
   return (
@@ -30,40 +90,13 @@ export default function payment() {
         <div className="h-full w-full ">
           <div className="flex flex-col h-full space-y-8">
             {orderItems.map((item) => (
-              <div className="flex justify-around shadow-md rounded-xl h-24 w-full flex-row">
-                <Image src={item.img} alt="Loading..." width={80} height={10} />
-                <div className="flex flex-col items-center justify-center space-y-3 w-full">
-                  <div>{item.title}</div>
-                  <div className="flex flex-row space-x-2 space-x-reverse">
-                    <div>
-                      {Intl.NumberFormat("fa").format(item.price * item.count)}
-                    </div>
-                    <div>
-                      <p className="">تومان</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center w-full h-full">
-                  <div
-                    className="flex  flex-row p-1 justify-center space-x-5 bg-gray  rounded-lg
-                rtl:space-x-reverse items-center"
-                  >
-                    <button
-                      className="text-text bg-card justify-center 
-                  flex items-center h-6 w-6 rounded-lg"
-                    >
-                      <AiOutlinePlus />
-                    </button>
-                    <div>{Intl.NumberFormat("fa").format(item.count)}</div>
-                    <button
-                      className="text-text bg-primary justify-center
-                   flex items-center h-6 w-6 rounded-lg "
-                    >
-                      <AiOutlineMinus />
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <FoodSelected
+                summaryHandler={summaryHandler}
+                img={item.img}
+                title={item.title}
+                count={item.count}
+                price={item.price}
+              />
             ))}
           </div>
         </div>
@@ -72,7 +105,7 @@ export default function payment() {
         <div className="flex flex-row font-bold justify-between p-5">
           <div>قیمت کل :</div>
           <div className="flex flex-row space-x-2 space-x-reverse">
-            <div>{Intl.NumberFormat("fa").format(599000)}</div>
+            <div>{Intl.NumberFormat("fa").format(finalyPrice)}</div>
             <div>تومان </div>
           </div>
         </div>

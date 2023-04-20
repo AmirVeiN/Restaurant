@@ -77,12 +77,8 @@ const orderSlice = createSlice({
       ...state,
       { ...action.payload, id: state.length + 1 },
     ],
-    changeCount: (state, action) => [
-      ...state,
-      { ...action.payload, count: state.map((e) => (e.count = 1)) },
-    ],
   },
 });
 
 export default orderSlice.reducer;
-export const { addorder, changeCount } = orderSlice.actions;
+export const { addorder } = orderSlice.actions;
