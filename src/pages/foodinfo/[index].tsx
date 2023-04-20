@@ -84,7 +84,7 @@ export default function FoodSlice() {
                 <p>
                   {`${Intl.NumberFormat("fa").format(
                     count * food.price
-                  )} تومان`}{" "}
+                  )} تومان`}
                 </p>
               </div>
               <div className="flex flex-col items-start h-fit space-y-2">
@@ -92,7 +92,7 @@ export default function FoodSlice() {
                 <small className="text-black">
                   {`قیمت واحد: ${Intl.NumberFormat("fa").format(
                     food.price
-                  )} تومان`}{" "}
+                  )} تومان`}
                 </small>
               </div>
             </div>
