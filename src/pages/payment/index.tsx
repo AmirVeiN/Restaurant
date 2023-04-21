@@ -58,8 +58,7 @@ function FoodSelected(props: {
                 }));
               }
             }}
-            className="text-text bg-primary justify-center
-       flex items-center h-6 w-6 rounded-lg "
+            className="text-text bg-primary justify-center flex items-center h-6 w-6 rounded-lg "
           >
             <AiOutlineMinus />
           </button>
@@ -78,7 +77,6 @@ export default function payment() {
   );
 
   const router = useRouter();
-  console.log(summary);
 
   return (
     <div className="w-screen h-screen flex flex-col">
