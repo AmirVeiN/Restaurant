@@ -2,33 +2,34 @@ import { FaRegListAlt } from "react-icons/fa";
 import { BsFilter } from "react-icons/bs";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { useAppSelector } from "../../../store/hooks";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { useRouter } from "next/router";
 
 function ChefSelected(props: {
   count: Array<number>;
   title: Array<string>;
   table: number;
 }) {
-  function StringFinder(title: Array<string>) {
-    var len = title.length;
-    return 43 - len;
-  }
-
   return (
-    <div className="w-full h-fit flex-col p-3">
+    <div className="w-96 h-fit p-3 ">
       <div className="bg-primary rounded-t-xl">
         <div className="h-10 bg-red flex rounded-t-md justify-center items-center mb-3 text-primary">
           میز {Intl.NumberFormat("fr").format(props.table)}
         </div>
         <div className="h-fit flex flex-col space-y-3 ">
-          <div className="flex flex-row justify-evenly">
+          <div className="w-full flex flex-row h-fit justify-between px-2">
             <div>
               {props.title.map((i) => (
-                <div>{i}</div>
-              ))}
-            </div>
-            <div>
-              {props.title.map(() => (
-                <div>{".".repeat(StringFinder(props.title))}</div>
+                <div
+                  className={`w-full flex flex-row space-x-reverse space-x-4 justify-between`}
+                >
+                  <div className="">{i}</div>
+                  <p>
+                    {i.length >= 25
+                      ? ".".repeat(45 - i.length)
+                      : ".".repeat(50 - i.length)}
+                  </p>
+                </div>
               ))}
             </div>
             <div>
@@ -57,27 +58,35 @@ function ChefSelected(props: {
 
 export default function ChefPage() {
   const chefItems = useAppSelector((item) => item.chef);
+  const router = useRouter();
 
   return (
-    <div className="h-screen w-screen  bg-lightGray overflow-y-auto">
-      <div className="h-full w-full">
-        <div className="justify-center absolute w-full h-12 items-center space-x-2 space-x-reverse shadow-md bg-primary flex flex-row">
-          <div className="absolute left-3 bg-gray p-2 rounded-md shadow-md">
-            <BsFilter className="text-xl " />
+    <div className="h-screen w-screen  bg-lightGray ">
+      <div className="h-full w-full flex flex-col">
+        <div className=" w-full h-16 items-center shadow-lg rounded-b-md bg-primary justify-between px-3 flex flex-row">
+          <button
+            onClick={() => router.push("/")}
+            className="text-xl shadow-md shadow-text/50 p-2 rounded-md bg-primary text-black"
+          >
+            <MdKeyboardArrowRight />
+          </button>
+          <div className="flex flex-row  right-28 justify-around shadow-md space-x-3 space-x-reverse">
+            <FaRegListAlt className="text-xl text-red/70" />
+            <p className="font-extrabold">لیست سفارشات غذا</p>
           </div>
-          <div>
-            <FaRegListAlt className="text-xl text-red" />
-          </div>
-          <p className="font-extrabold">لیست سفارشات غذا</p>
+          <button className=" left-3 bg-primary p-2 rounded-md shadow-md shadow-text/50  text-xl">
+            <BsFilter />
+          </button>
         </div>
-        <div className="h-12"></div>
-        {chefItems.map((items) => (
+        <div className="h-full w-full flex justify-start items-center flex-col overflow-y-auto md:grid grid-cols-2 lg:grid-cols-3 lg:gap-x-[6.75rem] xl:grid-cols-4 xl:gap-x-[20.75rem] ">
+          {chefItems.map((items) => (
             <ChefSelected
               title={items.title}
               count={items.count}
               table={items.table}
             />
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
