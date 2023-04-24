@@ -6,6 +6,7 @@ import { ListFormat } from "typescript";
 export type foodType = {
   table: number;
   id: Key;
+  finish: boolean;
   title: Array<string>;
   count: Array<number>;
 };
@@ -14,40 +15,69 @@ const initialState = [
   {
     table: 1,
     id: 1,
+    finish: true,
     title: ["کباب کوبیده", "کباب گوساله", "کباب مرغ"],
     count: [2, 3, 1],
   },
   {
     table: 2,
     id: 2,
+    finish: false,
     title: ["کباب کوبیده", "کباب مرغ"],
     count: [2, 3],
   },
   {
     table: 3,
     id: 3,
-    title: ["کباب کوبیده با کره محلی اردبیل", "کباب مرغ", "دوغ مشهد", "نوشابه فانتا"],
+    finish: false,
+    title: [
+      "کباب کوبیده با کره محلی اردبیل",
+      "کباب مرغ",
+      "دوغ مشهد",
+      "نوشابه فانتا",
+    ],
     count: [2, 3, 1, 1],
   },
   {
     table: 4,
     id: 4,
-    title: ["کباب کوبیده با کره محلی اردبیل", "کباب مرغ", "دوغ مشهد", "نوشابه فانتا"],
+    finish: false,
+    title: [
+      "کباب کوبیده با کره محلی اردبیل",
+      "کباب مرغ",
+      "دوغ مشهد",
+      "نوشابه فانتا",
+    ],
     count: [2, 3, 1, 1],
-  },  {
+  },
+  {
     table: 5,
     id: 5,
-    title: ["کباب کوبیده با کره محلی اردبیل", "کباب مرغ", "دوغ مشهد", "نوشابه فانتا"],
+    finish: false,
+    title: [
+      "کباب کوبیده با کره محلی اردبیل",
+      "کباب مرغ",
+      "دوغ مشهد",
+      "نوشابه فانتا",
+    ],
     count: [2, 3, 1, 1],
-  },  {
+  },
+  {
     table: 6,
     id: 6,
-    title: ["کباب کوبیده با کره محلی اردبیل", "کباب مرغ", "دوغ مشهد", "نوشابه فانتا"],
+    finish: false,
+    title: [
+      "کباب کوبیده با کره محلی اردبیل",
+      "کباب مرغ",
+      "دوغ مشهد",
+      "نوشابه فانتا",
+    ],
     count: [2, 3, 1, 1],
   },
   {
     table: 7,
     id: 7,
+    finish: false,
     title: [
       "پیتزا مخلوط",
       "کباب کوبیده",
@@ -62,7 +92,10 @@ const initialState = [
 const chefSlice = createSlice({
   name: "chefSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    finishChanger: (state, actions) => [],
+  },
 });
 
 export default chefSlice.reducer;
+export const { finishChanger } = chefSlice.actions;

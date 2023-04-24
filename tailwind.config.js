@@ -15,6 +15,7 @@ module.exports = {
       gray: "#E9EEF0",
       blue: "#4682b4",
       lightGray: "#cdcccc",
+      softGreen: "#38b13c",
     },
     extend: {
       keyframes: {

@@ -1,10 +1,7 @@
 import { useRouter } from "next/router";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { TiShoppingCart } from "react-icons/ti";
-import { foodType } from "../../store/foods/slice";
 import Food from "@/components/foodcard/foodcard";
-import { FoodEnum } from "../../store/foods/slice";
-import { useAppDispatch } from "../../store/hooks";
 import { useAppSelector } from "../../store/hooks";
 
 export default function FoodsList() {
