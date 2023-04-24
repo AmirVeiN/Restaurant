@@ -4,12 +4,19 @@ import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { useAppSelector } from "../../../store/hooks";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useRouter } from "next/router";
+import { useState } from "react";
+
+
 
 function ChefSelected(props: {
   count: Array<number>;
   title: Array<string>;
   table: number;
 }) {
+  const [ready, readyHandler] = useState(false);
+  const toggleReady = () => {
+    readyHandler((current) => !current);
+  };
   return (
     <div className="w-96 h-fit p-3 ">
       <div className="bg-primary rounded-t-xl">
@@ -42,12 +49,12 @@ function ChefSelected(props: {
             </div>
           </div>
           <div className="flex flex-row justify-center">
-            <div className="border p-2 border-text/30 rounded-md space-x-2 space-x-reverse flex flex-row justify-center items-center">
+            <button onClick={toggleReady} className="border p-2 border-text/30 rounded-md space-x-2 space-x-reverse flex flex-row justify-center items-center">
               <div>
                 <MdCheckBoxOutlineBlank />
               </div>
               <p className="font-bold">آماده شد</p>
-            </div>
+            </button>
           </div>
           <div className="bg-mask h-5 w-full"></div>
         </div>
