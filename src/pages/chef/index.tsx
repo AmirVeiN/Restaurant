@@ -5,18 +5,13 @@ import { useAppSelector } from "../../../store/hooks";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-
+import ReadyModal from "@/components/modals/readyModal";
 
 function ChefSelected(props: {
   count: Array<number>;
   title: Array<string>;
   table: number;
 }) {
-  const [ready, readyHandler] = useState(false);
-  const toggleReady = () => {
-    readyHandler((current) => !current);
-  };
   return (
     <div className="w-96 h-fit p-3 ">
       <div className="bg-primary rounded-t-xl">
@@ -49,7 +44,7 @@ function ChefSelected(props: {
             </div>
           </div>
           <div className="flex flex-row justify-center">
-            <button onClick={toggleReady} className="border p-2 border-text/30 rounded-md space-x-2 space-x-reverse flex flex-row justify-center items-center">
+            <button className="border p-2 border-text/30 rounded-md space-x-2 space-x-reverse flex flex-row justify-center items-center">
               <div>
                 <MdCheckBoxOutlineBlank />
               </div>
@@ -68,7 +63,7 @@ export default function ChefPage() {
   const router = useRouter();
 
   return (
-    <div className="h-screen w-screen  bg-lightGray ">
+    <div className="h-screen w-screen relative bg-lightGray ">
       <div className="h-full w-full flex flex-col">
         <div className=" w-full h-16 items-center shadow-lg rounded-b-md bg-primary justify-between px-3 flex flex-row">
           <button
