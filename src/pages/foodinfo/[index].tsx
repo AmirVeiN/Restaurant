@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { TiStar } from "react-icons/ti";
 import { AiFillFire } from "react-icons/ai";
 import { BsFillClockFill } from "react-icons/bs";
@@ -40,7 +39,7 @@ export default function FoodSlice() {
           </div>
           <div className=" bg-primary w-full h-[46rem] rounded-t-[60px] flex flex-col p-5 justify-between ">
             <div className="flex  items-center justify-center rounded-lg ">
-              <Image
+              <img
                 className="h-fit w-fit"
                 src={food.img}
                 alt="Loading..."

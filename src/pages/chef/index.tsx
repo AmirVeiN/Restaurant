@@ -6,7 +6,6 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { AiFillCheckSquare } from "react-icons/ai";
-import Image from "next/image";
 import { finishChanger } from "../../../store/chef/slice";
 
 export default function ChefPage() {
@@ -56,7 +55,7 @@ export default function ChefPage() {
       <div className="w-screen h-screen flex justify-center items-center">
         <div className=" flex justify-center items-center flex-col -space-y-[30px] h-[500px] w-80 ">
           <div className="z-20 h-fit w-full flex justify-center">
-            <Image
+            <img
               className=""
               src={"/chef3.png"}
               alt="Loading..."

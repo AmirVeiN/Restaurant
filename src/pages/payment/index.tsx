@@ -1,7 +1,6 @@
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { useRouter } from "next/router";
-import { useAppSelector, useAppDispatch } from "../../../store/hooks";
-import Image from "next/image";
+import { useAppSelector } from "../../../store/hooks";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 import React, { useEffect, useState } from "react";
@@ -19,7 +18,12 @@ function FoodSelected(props: {
 
   return (
     <div className="flex justify-around shadow-md rounded-xl h-24 w-full flex-row">
-      <Image src={props.img} alt="Loading..." width={80} height={10} />
+      <img
+        src={props.img}
+        alt="Loading..."
+        width={80}
+        height={10}
+      />
       <div className="flex flex-col items-center justify-center space-y-3 w-full">
         <div>{props.title}</div>
         <div className="flex flex-row space-x-2 space-x-reverse">

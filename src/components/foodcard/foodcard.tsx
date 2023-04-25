@@ -1,5 +1,4 @@
 // base
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { Key } from "react";
 
@@ -20,7 +19,12 @@ export default function Food(props: {
         className="flex h-52 flex-col w-full bg-primary rounded-3xl shadow-xl shadow-text/30 items-center justify-center"
       >
         <div className="w-22 h-22 items-center flex justify-center flex-col-reverse">
-          <Image src={props.img} alt="Loading..." width={100} height={100} />
+          <img
+            src={props.img}
+            alt="Loading..."
+            width={100}
+            height={100}
+          />
         </div>
         <div className="flex p-1 flex-col  items-center justify-center ">
           <p className="text-text">{props.title}</p>

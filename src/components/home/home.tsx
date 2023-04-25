@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Image from "next/image";
+
 import { FoodSection } from "../section/section";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { FoodEnum } from "../../../store/foods/slice";
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <div className="p-5 ">
         <div className="w-full  h-36 bg-red rounded-2xl relative">
-          <Image
+          <img
             className="absolute top-2 rtl:left-0 ltr:right-0"
             src="/top.png"
             alt=""
