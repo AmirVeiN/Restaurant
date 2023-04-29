@@ -3,7 +3,7 @@ import { List } from "postcss/lib/list";
 import { Key } from "react";
 import { ListFormat } from "typescript";
 
-export type foodType = {
+export type FoodType = {
   table: number;
   id: Key;
   finish: boolean;
@@ -11,7 +11,7 @@ export type foodType = {
   count: Array<number>;
 };
 
-const initialState = [
+const initialState: FoodType[] = [
   {
     table: 1,
     id: 1,
@@ -93,9 +93,11 @@ const chefSlice = createSlice({
   name: "chefSlice",
   initialState,
   reducers: {
-    finishChanger: (state, actions) => [],
+    FinishChanger(state, actions:PayloadAction<FoodType>) {
+      state[actions.payload.table].finish = actions.payload.finish;
+    },
   },
 });
 
 export default chefSlice.reducer;
-export const { finishChanger } = chefSlice.actions;
+export const { FinishChanger } = chefSlice.actions;

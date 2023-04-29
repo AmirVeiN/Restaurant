@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 import { FoodSection } from "../section/section";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { FoodEnum } from "../../../store/foods/slice";
@@ -14,7 +13,7 @@ export default function Home() {
   const foods = useAppSelector((store) => store.foods);
   const sectionList = useAppSelector((store) => store.core);
   return (
-    <>
+    <div>
       <div className="p-5 ">
         <div className="w-full  h-36 bg-red rounded-2xl relative">
           <img
@@ -75,6 +74,6 @@ export default function Home() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
