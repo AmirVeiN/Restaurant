@@ -93,9 +93,8 @@ const chefSlice = createSlice({
   name: "chefSlice",
   initialState,
   reducers: {
-    FinishChanger(state, actions:PayloadAction<FoodType>) {
-      state[actions.payload.table].finish = actions.payload.finish;
-    },
+    FinishChanger: (state, action: PayloadAction<{ id: number }>) =>
+      state.filter((d) => d.id !== action.payload.id),
   },
 });
 
