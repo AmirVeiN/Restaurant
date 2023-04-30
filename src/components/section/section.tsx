@@ -11,7 +11,7 @@ export function FoodSection(props: {
   const router = useRouter();
   return (
     <div className="flex flex-col space-y-1">
-      <div className="flex flex-row  justify-between px-5 items-center">
+      <div className="flex flex-row  justify-between pr-5 pl-1 items-center">
         <div className="pb-2 text-xl text-text">{props.title}</div>
         <button
           onClick={() => router.push(`/${props.title}`)}

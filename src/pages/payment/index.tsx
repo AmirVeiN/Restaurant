@@ -18,12 +18,7 @@ function FoodSelected(props: {
 
   return (
     <div className="flex justify-around shadow-md rounded-xl h-24 w-full flex-row">
-      <img
-        src={props.img}
-        alt="Loading..."
-        width={80}
-        height={10}
-      />
+      <img src={props.img} alt="Loading..." width={80} height={10} />
       <div className="flex flex-col items-center justify-center space-y-3 w-full">
         <div>{props.title}</div>
         <div className="flex flex-row space-x-2 space-x-reverse">
@@ -124,9 +119,9 @@ export default function payment() {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <div className="bg-card/80 font-extrabold flex rounded-3xl items-center justify-center w-44 h-12">
+          <button className="bg-card/90 font-bold text-lg flex rounded-xl items-center justify-center w-44 h-12">
             تایید سفارشات
-          </div>
+          </button>
         </div>
       </div>
     </div>

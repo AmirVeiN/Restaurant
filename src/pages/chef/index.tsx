@@ -59,18 +59,16 @@ function ReadyModal(props: { onClose: () => void; id: number }) {
 
 function ChefSelected(props: {
   count: number[];
-  title: Array<string>;
+  title: string[];
   finish: boolean;
   table: number;
   handler: () => void;
 }) {
-  const [open, openHandler] = useState(false);
-  const Toggle = () => openHandler(!open);
   return (
     <div className="w-96 h-fit p-3 ">
       <div className="bg-primary rounded-t-xl">
         <div className="h-10 bg-red flex rounded-t-md justify-center items-center mb-3 text-primary">
-          میز {Intl.NumberFormat("fr").format(props.table)}
+          میز {Intl.NumberFormat("fa").format(props.table)}
         </div>
         <div className="h-fit flex flex-col space-y-3 ">
           <div className="w-full flex flex-row h-fit justify-between px-2">

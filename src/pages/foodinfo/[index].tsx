@@ -30,12 +30,12 @@ export default function FoodSlice() {
             >
               <MdKeyboardArrowRight />
             </button>
-            <button
+            {/* <button
               onClick={() => router.push("/payment")}
               className="text-xl shadow-md p-3 rounded-xl bg-primary text-black/80"
             >
               <TiShoppingCart />
-            </button>
+            </button> */}
           </div>
           <div className=" bg-primary w-full h-[46rem] rounded-t-[60px] flex flex-col p-5 justify-between ">
             <div className="flex  items-center justify-center rounded-lg ">
@@ -63,14 +63,14 @@ export default function FoodSlice() {
                   </div>
                   <button
                     onClick={() => {
-                      if (count > 0) {
+                      if (count > 1) {
                         setCount(count - 1);
                       } else {
-                        count == 0;
+                        count == 1;
                       }
                     }}
                     className={`${
-                      count == 0 ? "text-primary" : "text-3xl text-text"
+                      count == 1 ? "text-primary hidden" : "text-3xl text-text"
                     }`}
                   >
                     <AiFillMinusCircle />
@@ -123,6 +123,7 @@ export default function FoodSlice() {
             <div className=" flex justify-center">
               <button
                 onClick={() => {
+                  router.push('/')
                   dispatch(
                     addorder({
                       id: 0,

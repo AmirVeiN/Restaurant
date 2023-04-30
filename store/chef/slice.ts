@@ -7,8 +7,8 @@ export type FoodType = {
   table: number;
   id: Key;
   finish: boolean;
-  title: Array<string>;
-  count: Array<number>;
+  title: string[];
+  count: number[];
 };
 
 const initialState: FoodType[] = [
