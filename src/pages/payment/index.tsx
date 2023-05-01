@@ -157,8 +157,8 @@ export default function payment() {
           </div>
         </div>
       </div>
-      <div className="rounded-2xl flex flex-col justify-center bg-text/5 shadow-inner h-1/5">
-        <div className="flex flex-row font-bold justify-between p-5">
+      <div className="rounded-2xl flex flex-col justify-around bg-text/5 shadow-inner h-36">
+        <div className="flex flex-row font-bold justify-between px-5">
           <div>قیمت کل :</div>
           <div className="flex flex-row space-x-2 space-x-reverse">
             <div>
@@ -173,7 +173,7 @@ export default function payment() {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <button className="bg-card/90 font-bold text-lg flex rounded-xl items-center justify-center w-44 h-12">
+          <button className="bg-red text-primary font-bold text-lg flex rounded-xl items-center justify-center w-44 h-12">
             تایید سفارشات
           </button>
         </div>
