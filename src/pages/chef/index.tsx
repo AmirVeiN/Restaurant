@@ -29,9 +29,7 @@ function ReadyModal(props: { onClose: () => void; id: number }) {
               <p className="text-text font-extrabold text-2xl">
                 آماده شدن سفارش
               </p>
-              <p className="text-text/70 text-lg">
-                آیا مطمئن هستید ؟{props.id}
-              </p>
+              <p className="text-text/70 text-lg">آیا مطمئن هستید ؟</p>
             </div>
             <div className="h-1/2 w-full flex flex-row justify-center items-center space-x-10 space-x-reverse">
               <button

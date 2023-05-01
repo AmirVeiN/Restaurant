@@ -6,7 +6,6 @@ import { FoodSection } from "../section/section";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { FoodEnum } from "../../../store/foods/slice";
 import { CategoryEnum, setCategory } from "../../../store/core/slice";
-import { MdFastfood } from "react-icons/md";
 import { Twirl as Hamburger } from "hamburger-react";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { TbChefHat } from "react-icons/tb";
@@ -37,7 +36,7 @@ export default function Home() {
         <div className="h-3/4 flex justify-center flex-col items-start pr-2 space-y-4 w-full">
           <div className="flex flex-row items-center space-x-1 space-x-reverse shadow-md p-2 justify-center">
             <MdOutlineManageAccounts className="text-2xl" />
-            <button>مدیریت</button>
+            <button onClick={() => router.push("/manager")}>مدیریت</button>
           </div>
           <div className="flex flex-row items-center space-x-6 shadow-md p-2 justify-center">
             <TbChefHat className="text-2xl" />
