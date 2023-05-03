@@ -4,11 +4,14 @@ import { Key } from "react";
 export enum FoodEnum {
   kabab = "کباب",
   pizza = "پیتزا",
+  sandwich = "ساندویچ",
+  dessert = "دسر",
+  traditional = "سنتی",
   juice = "نوشیدنی",
 }
 
 export type foodType = {
-  id: Key;
+  id: number;
   title: string;
   subtitle: string;
   price: number;
@@ -177,12 +180,53 @@ const initialState: foodType[] = [
     cal: 150,
     time: 60,
   },
+  {
+    id: 14,
+    title: "پیتزا پپرونی",
+    subtitle: "کباب 400 گرم",
+    price: 170000,
+    img: "/pizza1.png",
+    foodEnum: FoodEnum.pizza,
+    desc: "این یک متن تست است",
+    rate: 50,
+    cal: 150,
+    time: 60,
+  },
+  {
+    id: 15,
+    title: "پیتزا پپرونی",
+    subtitle: "کباب 400 گرم",
+    price: 170000,
+    img: "/pizza1.png",
+    foodEnum: FoodEnum.pizza,
+    desc: "این یک متن تست است",
+    rate: 50,
+    cal: 150,
+    time: 60,
+  },
+  {
+    id: 16,
+    title: "پیتزا پپرونی",
+    subtitle: "کباب 400 گرم",
+    price: 170000,
+    img: "/pizza1.png",
+    foodEnum: FoodEnum.pizza,
+    desc: "این یک متن تست است",
+    rate: 50,
+    cal: 150,
+    time: 60,
+  },
 ];
 
 const foodSlice = createSlice({
   name: "foodSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    removeFood(state, action) {
+      return state.filter((element) => element.id !== action.payload);
+    },
+  },
 });
 
 export default foodSlice.reducer;
+export const { removeFood } = foodSlice.actions;

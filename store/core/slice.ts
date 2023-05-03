@@ -24,19 +24,19 @@ const initialState: coreType = {
   sectionOnMain: [FoodEnum.kabab, FoodEnum.pizza, FoodEnum.juice],
   category: {
     [CategoryEnum["سنتی"]]: {
+      subSection: [FoodEnum.traditional],
       icon: "traditional",
-      subSection: [FoodEnum.kabab],
     },
     [CategoryEnum["کباب"]]: {
       subSection: [FoodEnum.kabab],
       icon: "kabab",
     },
     [CategoryEnum["دسر"]]: {
-      subSection: [FoodEnum.kabab],
+      subSection: [FoodEnum.dessert],
       icon: "dessert",
     },
     [CategoryEnum["ساندویچ"]]: {
-      subSection: [FoodEnum.pizza],
+      subSection: [FoodEnum.sandwich],
       icon: "sandwich",
     },
     [CategoryEnum["پیتزا"]]: {

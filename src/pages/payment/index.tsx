@@ -15,7 +15,7 @@ function ReadyModal(props: { onClose: () => void; id: number }) {
         <div className="z-20 h-fit w-full flex justify-center">
           <img
             className=""
-            src={"/trash1.png"}
+            src={"/trash2.png"}
             alt="Loading..."
             width={300}
             height={100}

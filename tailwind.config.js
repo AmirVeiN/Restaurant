@@ -14,6 +14,11 @@ module.exports = {
       green: "#1c5f30",
       gray: "#E9EEF0",
       blue: "#4682b4",
+      bestyellow: "#f7df57",
+      bestgray: "#75767b",
+      bestgreen: "#92e3a9",
+      bestblue: "#4f52ff",
+      bestred: "#ea5f5a",
       lightGray: "#cdcccc",
       softGreen: "#38b13c",
     },
@@ -39,6 +44,7 @@ module.exports = {
       },
       backgroundImage: {
         back: "url('/background3.png')",
+        back1: "url('/back.png')",
         mask: "url('/trans1.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

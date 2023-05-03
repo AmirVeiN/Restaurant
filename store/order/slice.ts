@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { count } from "console";
 import { Key } from "react";
 
 export type foodType = {

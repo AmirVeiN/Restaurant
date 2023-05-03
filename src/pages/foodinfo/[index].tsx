@@ -30,12 +30,6 @@ export default function FoodSlice() {
             >
               <MdKeyboardArrowRight />
             </button>
-            {/* <button
-              onClick={() => router.push("/payment")}
-              className="text-xl shadow-md p-3 rounded-xl bg-primary text-black/80"
-            >
-              <TiShoppingCart />
-            </button> */}
           </div>
           <div className=" bg-primary w-full h-[46rem] rounded-t-[60px] flex flex-col p-5 justify-between ">
             <div className="flex  items-center justify-center rounded-lg ">
@@ -123,10 +117,10 @@ export default function FoodSlice() {
             <div className=" flex justify-center">
               <button
                 onClick={() => {
-                  router.push('/')
+                  router.push("/");
                   dispatch(
                     addorder({
-                      id: 0,
+                      number: food.id,
                       count,
                       price: food.price,
                       img: food.img,
