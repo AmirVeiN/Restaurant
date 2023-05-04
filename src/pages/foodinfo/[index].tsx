@@ -4,9 +4,8 @@ import { TiStar } from "react-icons/ti";
 import { AiFillFire } from "react-icons/ai";
 import { BsFillClockFill } from "react-icons/bs";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { TiShoppingCart } from "react-icons/ti";
-import { AiFillMinusCircle } from "react-icons/ai";
-import { AiFillPlusCircle } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineMinus } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { addorder } from "../../../store/order/slice";
 
@@ -22,7 +21,7 @@ export default function FoodSlice() {
 
     if (food !== undefined)
       return (
-        <div className="flex bg-back flex-col items-center h-screen  w-screen justify-between">
+        <div className="flex bg-back flex-col items-center h-screen  w-screen ">
           <div className="flex w-full p-6 flex-row justify-between items-center">
             <button
               onClick={() => router.push("/")}
@@ -31,28 +30,28 @@ export default function FoodSlice() {
               <MdKeyboardArrowRight />
             </button>
           </div>
-          <div className=" bg-primary w-full h-[46rem] rounded-t-[60px] flex flex-col p-5 justify-between ">
-            <div className="flex  items-center justify-center rounded-lg ">
+          <div className=" bg-primary w-full h-full rounded-t-[60px] flex flex-col p-5 items-center justify-around ">
+            <div className="flex h-1/3 w-fit items-center justify-center ">
               <img
-                className="h-fit w-fit"
+                className="h-full w-fit"
                 src={food.img}
                 alt="Loading..."
-                width={200}
-                height={100}
+                width={250}
+                height={250}
               />
             </div>
             <div className="flex w-full h-fit justify-center items-center">
               <div className="w-fit flex flex-row-reverse space-x-reverse space-x-5 justify-center items-center">
-                <div className="w-24 h-12  flex flex-row justify-center space-x-3 items-center rtl:space-x-reverse ">
+                <div className="w-32 h-12 bg-text/20 rounded-lg px-1 flex flex-row justify-center space-x-5 items-center rtl:space-x-reverse ">
                   <button
-                    className="text-3xl text-tomato"
+                    className="text-xl text-primary bg-red w-7 h-7 flex rounded-md justify-center items-center"
                     onClick={() => {
                       setCount(count + 1);
                     }}
                   >
-                    <AiFillPlusCircle />
+                    <AiOutlinePlus />
                   </button>
-                  <div className="text-tomato text-2xl">
+                  <div className="text-text text-2xl font-bold">
                     {Intl.NumberFormat("fa").format(count)}
                   </div>
                   <button
@@ -64,10 +63,10 @@ export default function FoodSlice() {
                       }
                     }}
                     className={`${
-                      count == 1 ? "text-primary hidden" : "text-3xl text-text"
+                      count == 1 ? " hidden" : "text-xl text-text bg-primary h-7 w-7 flex justify-center rounded-md items-center"
                     }`}
                   >
-                    <AiFillMinusCircle />
+                    <AiOutlineMinus />
                   </button>
                 </div>
               </div>

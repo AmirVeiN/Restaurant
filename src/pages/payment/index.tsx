@@ -78,7 +78,7 @@ function FoodSelected(props: {
       </div>
       <div className="flex flex-row space-x-2 pl-2 space-x-reverse items-center justify-center w-full h-full">
         <div
-          className="flex  flex-row p-1 justify-center space-x-5 bg-text/10 rounded-lg
+          className="flex flex-row p-1 justify-center space-x-5 bg-text/10 rounded-lg
     rtl:space-x-reverse items-center"
         >
           <button

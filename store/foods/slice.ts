@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Key } from "react";
 
 export enum FoodEnum {
@@ -225,8 +225,9 @@ const foodSlice = createSlice({
     removeFood(state, action) {
       return state.filter((element) => element.id !== action.payload);
     },
+    foodChanger: (state, action) => {},
   },
 });
 
 export default foodSlice.reducer;
-export const { removeFood } = foodSlice.actions;
+export const { removeFood, foodChanger } = foodSlice.actions;

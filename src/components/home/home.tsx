@@ -29,9 +29,9 @@ export default function Home() {
   return (
     <div className="relative">
       <div
-        className={`h-[275px] w-28 fixed mr-2 rounded-2xl ${
-          !isOpen && "hidden"
-        } shadow-lg items-end flex shadow-red bg-primary z-30 `}
+        className={`h-[275px] w-28 fixed mr-2 delay-300 duration-300 rounded-2xl ${
+          isOpen ? "opacity-100 z-30" : "block opacity-0 -z-0"
+        } shadow-lg items-end flex shadow-red bg-primary  `}
       >
         <div className="h-3/4 flex justify-center flex-col items-start pr-2 space-y-4 w-full">
           <div className="flex flex-row items-center space-x-1 space-x-reverse shadow-md p-2 justify-center">
@@ -52,15 +52,15 @@ export default function Home() {
       </div>
       <div>
         <div className="flex flex-col px-5 pt-3">
-          <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row  justify-between items-center">
             <button
-              className={`${
+              className={`delay-300 duration-300 ${
                 isOpen
                   ? "shadow-lg z-40 rounded-xl pr-9 bg-gray text-primary"
                   : "shadow-lg z-40 rounded-xl bg-red text-primary"
               }`}
             >
-              <div className="bg-red rounded-xl">
+              <div className="bg-red rounded-xl ">
                 <Hamburger size={20} toggled={isOpen} toggle={setOpen} />
               </div>
             </button>
